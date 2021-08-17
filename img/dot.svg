@@ -1,0 +1,11 @@
+<svg viewBox="0 0 25 25" width="25" height="25">
+	<style>
+		.dot {
+			fill: #fff;
+		}
+	</style>
+	<g id="dots">
+		<circle cx="12" cy="12" r="1" fill="black" id='dot1' class='dot' />
+
+	</g>
+</svg>
