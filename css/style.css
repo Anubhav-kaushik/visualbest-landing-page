@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
 
 * {
     margin: 0;
@@ -13,7 +13,7 @@
 }
 
 html {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 h1 {
@@ -24,6 +24,7 @@ h1 {
 h2 {
     font-size: 4rem;
     line-height: 1.1em;
+    font-weight: 700;
 }
 
 p {
@@ -89,9 +90,13 @@ button:hover {
     margin-left: 1.2em;
 }
 
+.goon {
+    white-space: nowrap;
+}
+
 #section-1 {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background-color: white;
     min-height: 30vh;
@@ -101,7 +106,7 @@ button:hover {
 #sec1-img-container {
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 40%;
 }
 
 #sec1-img-container img {
@@ -120,12 +125,12 @@ button:hover {
     }
 
     100% {
-        transform: translate(-30%, 15%);
+        transform: translate(-28%, 15%);
     }
 }
 
 .sec1-text-container {
-    max-width: 40%;
+    max-width: 42%;
 }
 
 .sec1-text-container > p {
@@ -137,9 +142,9 @@ button:hover {
     background: url(../img/design.png) no-repeat;
     background-size: contain;
     background-color: transparent;
-    padding: 13% 18% 25%;
+    padding: 13% 15% 25%;
     margin-top: 2%;
-    margin-bottom: -30%;
+    margin-bottom: -25%;
 }
 
 .sec2-text-container > p {
@@ -157,55 +162,19 @@ button:hover {
     padding: 0px;
     transition: all 1s;
     align-items: center;
-    min-height: 60vh;
 }
 
 #section-3  img {
-    margin: 15px;
+    margin: 0.53vw;
     transition: all 1s;
-}
-
-.slider-btns {
-    position: absolute;
-    width: 100%;
-    margin-top: -22em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.slider-btns .left-arrow {
-    font-size: 5rem;
-    padding-left: 0.2em;
-    opacity: 0.5;
-}
-
-.slider-btns .left-arrow:hover {
-    color: white;
-    background-color: gray;
-    transition: all 0.5s;
-    cursor: pointer;
-}
-
-.slider-btns .right-arrow {
-    font-size: 5rem;
-    padding-right: 0.2em;
-    opacity: 0.5;
-}
-
-.slider-btns .right-arrow:hover {
-    color: white;
-    background-color: gray;
-    transition: all 0.5s;
-    cursor: pointer;
 }
 
 .navigators {
     height: 50px;
     display: flex;
     justify-content: center;
-    margin-top: -6%;
-    margin-bottom: 2%;
+    margin-top: -5%;
+    margin-bottom: 5%;
     position: absolute;
     z-index: 99;
     padding-left: 45vw;
@@ -226,7 +195,7 @@ button:hover {
 
 #section-4 {
     background-color: white;
-    margin: -2em auto 8em;
+    margin: 0em auto 8em;
 }
 
 #section-4 img {
@@ -268,12 +237,12 @@ button:hover {
 .sec5-main-container {
     justify-content: space-around;
     margin-top: 2em;
-    padding: 0 10%;
+    padding: 0 5%;
     margin-bottom: 3em;
 }
 
 .sec5-text-container {
-    width: 60%;
+    width: 50%;
     line-height: 1.5em;
     padding-right: 3em;
     padding-top: 3em;

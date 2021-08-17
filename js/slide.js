@@ -1,22 +1,20 @@
-const leftArrow = document.querySelector('#left-arrow');
-const rightArrow = document.querySelector('#right-arrow');
 const slider = document.querySelector('.slider1');
 let sliderImages = slider.querySelectorAll('img');
 
 let newMove = 0;
 let counter = 1;
 const numImgs = sliderImages.length;
-const slideLen = 270;
+const slideLen = 16.75;
 const numDots = numImgs-5;
 console.log(numDots);
 
 function resizeImg(num, resizeTo) {
-    sliderImages[num].style.width = `${resizeTo}px`;
-    sliderImages[num].style.height = `${resizeTo}px`;
+    sliderImages[num].style.width = `${resizeTo}vw`;
+    sliderImages[num].style.height = `${resizeTo}vw`;
 }
 
 function resizeGrp(k=0) {
-    const imgOriginalWidth = 300;
+    const imgOriginalWidth = 19.7;
     resizeImg(counter-1+k, 0.8*imgOriginalWidth);
     resizeImg(counter+k, 1*imgOriginalWidth);
     resizeImg(counter+1+k, 1.2*imgOriginalWidth);
@@ -29,7 +27,7 @@ function slide(direction, factor=1) {
 
     newMove += moveInPx;
 
-    slider.style.transform = `translateX(${newMove}px)`;
+    slider.style.transform = `translateX(${newMove}vw)`;
 
     resizeGrp(0);
 }
