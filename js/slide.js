@@ -6,7 +6,6 @@ let counter = 1;
 const numImgs = sliderImages.length;
 const slideLen = 16.75;
 const numDots = numImgs-5;
-console.log(numDots);
 
 function resizeImg(num, resizeTo) {
     sliderImages[num].style.width = `${resizeTo}vw`;
@@ -44,9 +43,9 @@ function addNavigator(num) {
         let dot;
 
         if (i === 0) {
-            dot = `<circle cx='${i*25 + 15}' cy='20' r='8' class='dot active-dot' id='dot${i+1}' />`;
+            dot = `<circle cx='${i*25 + 15}' cy='20' r='8' class='dot active-dot' id='dot${i}' />`;
         } else {
-            dot = `<circle cx='${i*25 + 15}' cy='20' r='8' class='dot' id='dot${i+1}' />`;
+            dot = `<circle cx='${i*25 + 15}' cy='20' r='8' class='dot' id='dot${i}' />`;
         }
 
         dotGrp += dot;
@@ -56,21 +55,12 @@ function addNavigator(num) {
 
 }
 
-resizeGrp();
-addNavigator(numDots);
-
-let dots = document.querySelector('#dots');
-let position = 1;
-
-addEventListener('click', function(e) {
-    const dot = e.target;
+function moveToDot(num) {
+    const dot = document.querySelector(`#dot${num}`);
     
-    if (dot.parentNode.id !== 'dots') return;
-
     const prevActiveDot = dots.querySelector('.active-dot');
     prevActiveDot.classList.remove('active-dot');
 
-    const num = parseInt(dot.id.replace('dot', ''));
     dot.classList.add('active-dot');
 
     if (position === num) {
@@ -90,27 +80,33 @@ addEventListener('click', function(e) {
     }
 
     position = num;
+}
+
+
+resizeGrp();
+addNavigator(numDots);
+
+let dots = document.querySelector('#dots');
+let position = 0;
+
+addEventListener('click', function(e) {
+    const dot = e.target;
     
+    if (dot.parentNode.id !== 'dots') return;
+
+    const num = parseInt(dot.id.replace('dot', ''));
+
+    moveToDot(num);
 });
 
-// leftArrow.addEventListener('click', function() {
-//     if (counter >= numImgs - 5) {return;}
-//     else {counter++;}
+function slideAuto() {
+    const movePos = (position + 1) % (numDots);
+    moveToDot(movePos);
 
-//     console.log('left', counter);
-    
-//     slide('left');
+    setTimeout(slideAuto, 5000);
+}
 
-// });
-
-// rightArrow.addEventListener('click', function() {
-//     if (counter <= 1) {return;}
-//     else {counter--;}
-
-//     console.log('right', counter);
-
-//     slide('right');
-// });
+slideAuto();
 
 // Infinite loop of slide images
 

@@ -35,6 +35,11 @@ function addImagesToCat(imgUrls, catId, numImg) {
         inp.classList.add('cat-checkbox');
         imgInpDiv.append(inp);
 
+        let label = document.createElement('label');
+        label.setAttribute('for', `${catId}checkbox${n}`);
+        label.classList.add('cat-checkbox-label');
+        imgInpDiv.append(label);
+
         imgContainer.append(imgInpDiv);
         
     }

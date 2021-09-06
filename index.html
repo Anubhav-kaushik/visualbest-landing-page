@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cat-style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/slideAction.css">
     <title>Landing Page</title>
 </head>
 
@@ -34,7 +35,7 @@
     </section>
 
     <section id="section-2" class="centered section">
-        <div class="sec2-text-container">
+        <div class="sec2-text-container bottom-slide" data-delay="0.2s">
             <h2>
                 <span class="blue-text">
                     SOCIAL IMAGES FOR
@@ -98,10 +99,10 @@
         </div>
         <div class="flex centered sec4-container2">
             <div class="flex wrap sec4-img-container">
-                <img src="img/halloween1.png" alt="halloween">
-                <img src="img/diwali.png" alt="halloween">
-                <img src="img/mother_day.png" alt="halloween">
-                <img src="img/labour_day.png" alt="halloween">
+                <img src="img/halloween1.png" alt="halloween" class="bottom-slide" data-delay="0.2s">
+                <img src="img/diwali.png" alt="halloween" class="bottom-slide" data-delay="0.5s">
+                <img src="img/mother_day.png" alt="halloween" class="bottom-slide" data-delay="0.9s">
+                <img src="img/labour_day.png" alt="halloween"class="bottom-slide" data-delay="1.2s">
             </div>
             <div class="sec4-text-container left">
                 <p>
@@ -160,7 +161,7 @@
                 </p>
             </div>
             <div class="sec5-img-container left">
-                <img src="img/girl.png" alt="girl image">
+                <img src="img/girl.png" alt="girl image" class="right-slide" data-delay="0.2s">
 
             </div>
         </div>
@@ -288,7 +289,7 @@
             </h2>
         </div>
         <div class="reviews">
-            <img src="img/reviews.png" alt="Visualbest is the best Graphic agency">
+            <img src="img/reviews.png" alt="Visualbest is the best Graphic agency" class="bottom-slide" data-delay="0.2s">
         </div>
     </section>
 
@@ -348,6 +349,7 @@
     <script src="js/cat-img.js"></script>
     <script src="js/slide.js"></script>
     <script src="js/change-text.js"></script>
+    <script src="js/slideAction.js"></script>
 </body>
 
 </html>

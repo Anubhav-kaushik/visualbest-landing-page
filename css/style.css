@@ -112,11 +112,12 @@ button:hover {
 #sec1-img-container img {
     width: 64%;
     position: absolute;
+    
+    opacity: 0;
 }
 
 #sec1-img1 {
-    transition: all 2s;
-    animation: comein 2s ease-in 1 forwards;
+    animation: comein 2s ease-in 500ms 1 forwards;
 }
 
 @keyframes comein {
@@ -126,6 +127,7 @@ button:hover {
 
     100% {
         transform: translate(-28%, 15%);
+        opacity: 1;
     }
 }
 
@@ -220,7 +222,7 @@ button:hover {
 
 .sec4-img-container> img:nth-of-type(1),
 .sec4-img-container> img:nth-of-type(3) {
-    transform: translateY(40px);
+    margin-top: 30px !important;
 }
 
 .sec4-text-container {
@@ -411,6 +413,7 @@ button:hover {
 #section-9 .faq {
     text-align: left;
     padding-left: 10%;
+    padding-right: 10%;
     margin-top: 2em;
     font-size: 1.5rem;
 }
@@ -422,4 +425,10 @@ button:hover {
 
 #section-9 .faq .ans {
     margin: 0em auto 0.8em;
+}
+
+.right-slide,
+.left-slide,
+.bottom-slide {
+    opacity: 0;
 }

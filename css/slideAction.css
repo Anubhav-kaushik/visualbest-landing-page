@@ -1,0 +1,86 @@
+* {
+    --anim-time: 1s;
+    --anim-delay: 0.2s;
+    --anim-easing: ease-in;
+}
+
+.slideFromLeft {
+    -webkit-animation: slideFromLeft var(--anim-time) var(--anim-easing) forwards;
+    -moz-animation: slideFromLeft var(--anim-time) var(--anim-easing) forwards;
+    -o-animation: slideFromLeft var(--anim-time) var(--anim-easing) forwards;
+    animation: slideFromLeft var(--anim-time) var(--anim-easing) forwards;
+}
+
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.slideFromRight {
+    -webkit-animation: slideFromRight var(--anim-time) var(--anim-easing) forwards;
+    -moz-animation: slideFromRight var(--anim-time) var(--anim-easing) forwards;
+    -o-animation: slideFromRight var(--anim-time) var(--anim-easing) forwards;
+    animation: slideFromRight var(--anim-time) var(--anim-easing) forwards;
+}
+
+@keyframes slideFromRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.slideFromBottom {
+    -webkit-animation: slideFromBottom var(--anim-time) var(--anim-easing) forwards;
+    -moz-animation: slideFromBottom var(--anim-time) var(--anim-easing) forwards;
+    -o-animation: slideFromBottom var(--anim-time) var(--anim-easing) forwards;
+    animation: slideFromBottom var(--anim-time) var(--anim-easing) forwards;
+}
+
+@keyframes slideFromBottom {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        -o-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
