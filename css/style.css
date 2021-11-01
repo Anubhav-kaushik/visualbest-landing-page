@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #4a4acdff #6c5ef044;
 }
 
 :root {
@@ -314,7 +316,7 @@ button:hover {
     background-color: #C1DCF7;
     color: #7899BA;
     padding: 0.5em;
-    font-size: 2rem;
+    font-size: 2em;
 }
 
 .pricing-table tbody td[class='shutterstock'],
@@ -324,7 +326,7 @@ button:hover {
     padding: 1em;
     padding-left: 2.5em;
     padding-right: 2.5em;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 .pricing-table tfoot td[class='shutterstock'],
@@ -332,7 +334,7 @@ button:hover {
     background-color: #B2CBE6;
     color: #68809C;
     padding: 0.5em;
-    font-size: 2.2rem;
+    font-size: 2.2em;
     font-weight: 700;
 }
 
@@ -340,27 +342,27 @@ button:hover {
     background-color: #FF0078;
     color: #fff;
     padding: 0.5em;
-    font-size: 2rem;
+    font-size: 2em;
 }
 
 .pricing-table tbody td[class='smc'] {
     background-color: #E6D8F1;
     color: #444E5A;
     padding: 0.2em;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 .pricing-table tfoot td[class='smc'] {
     background-color: #fff;
     color: #FF0671;
     padding: 0.5em;
-    font-size: 2.5rem;
+    font-size: 2.5em;
     font-weight: 700;
 }
 
 .pricing-table > p {
     color: grey;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     margin-top: 0.8em;
     text-align: left;
 }

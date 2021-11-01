@@ -5,30 +5,52 @@ let newMove = 0;
 let counter = 1;
 const numImgs = sliderImages.length;
 const slideLen = 16.75;
-const numDots = numImgs-5;
+const numDots = numImgs - 5;
+const imgOriginalWidth = 19.7;
+
+
+// functions
+
+function mobileSlider(slider) {
+    let position = 0;
+
+    let interval = setInterval(() => {
+        position++;
+
+        if (position <= numImgs) {
+            slide('left', 100, 1, true);
+
+        } else {
+            slider.style.transform = `translateX(0vw)`;
+            position = 0;
+            newMove = 0;
+        }
+    }, 3000);
+}
 
 function resizeImg(num, resizeTo) {
     sliderImages[num].style.width = `${resizeTo}vw`;
     sliderImages[num].style.height = `${resizeTo}vw`;
 }
 
-function resizeGrp(k=0) {
-    const imgOriginalWidth = 19.7;
-    resizeImg(counter-1+k, 0.8*imgOriginalWidth);
-    resizeImg(counter+k, 1*imgOriginalWidth);
-    resizeImg(counter+1+k, 1.2*imgOriginalWidth);
-    resizeImg(counter+2+k, 1*imgOriginalWidth);
-    resizeImg(counter+3+k, 0.8*imgOriginalWidth);
+function resizeGrp(k = 0, imgOriginalWidth = 19.7, mobile) {
+    if (!mobile) {
+        resizeImg(counter - 1 + k, 0.8 * imgOriginalWidth);
+        resizeImg(counter + k, 1 * imgOriginalWidth);
+        resizeImg(counter + 1 + k, 1.2 * imgOriginalWidth);
+        resizeImg(counter + 2 + k, 1 * imgOriginalWidth);
+        resizeImg(counter + 3 + k, 0.8 * imgOriginalWidth);
+    }
 }
 
-function slide(direction, factor=1) {
-    let moveInPx = (direction === 'left') ? -slideLen*factor : slideLen*factor;
+function slide(direction, slideLen = 16.75, factor = 1, mobile = false) {
+    let moveInPx = (direction === 'left') ? -slideLen * factor : slideLen * factor;
 
     newMove += moveInPx;
 
     slider.style.transform = `translateX(${newMove}vw)`;
 
-    resizeGrp(0);
+    resizeGrp(0, imgOriginalWidth, mobile);
 }
 
 function addNavigator(num) {
@@ -57,7 +79,7 @@ function addNavigator(num) {
 
 function moveToDot(num) {
     const dot = document.querySelector(`#dot${num}`);
-    
+
     const prevActiveDot = dots.querySelector('.active-dot');
     prevActiveDot.classList.remove('active-dot');
 
@@ -65,14 +87,12 @@ function moveToDot(num) {
 
     if (position === num) {
         return;
-    }
-    else if (position < num) {
+    } else if (position < num) {
         for (let i = position; i < num; i++) {
             counter++
             slide('left');
         }
-    }
-    else if (position > num) {
+    } else if (position > num) {
         for (let i = position; i > num; i--) {
             counter--
             slide('right');
@@ -83,15 +103,15 @@ function moveToDot(num) {
 }
 
 
-resizeGrp();
-addNavigator(numDots);
+// resizeGrp();
+// addNavigator(numDots);
 
 let dots = document.querySelector('#dots');
 let position = 0;
 
-addEventListener('click', function(e) {
+addEventListener('click', function (e) {
     const dot = e.target;
-    
+
     if (dot.parentNode.id !== 'dots') return;
 
     const num = parseInt(dot.id.replace('dot', ''));
@@ -106,14 +126,6 @@ function slideAuto() {
     setTimeout(slideAuto, 5000);
 }
 
-slideAuto();
+// slideAuto();
 
-// Infinite loop of slide images
-
-// slider.addEventListener('transitionend', () => {
-//     if (sliderImages[counter-1].id == 'last-clone') {
-//         slider.style.transition = 'none';
-//         counter = numImgs - 5;
-//         slide('left', counter);
-//     }
-// });
+mobileSlider(slider);

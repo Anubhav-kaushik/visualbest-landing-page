@@ -41,14 +41,14 @@ function addImagesToCat(imgUrls, catId, numImg) {
         imgInpDiv.append(label);
 
         imgContainer.append(imgInpDiv);
-        
+
     }
 
     return imgContainer;
 }
 
 // Main functions
-function addCatDiv(locToAdd, catId, imgUrls, heading='Images', numImg=20) {
+function addCatDiv(locToAdd, catId, imgUrls, heading = 'Images', numImg = 20) {
     // params:
     //     locToAdd:: Id of the div to add the cat to: string
     //     catId:: Category id: string
@@ -103,7 +103,7 @@ function showImage(imgId) {
     cross.className = 'cross';
     cross.innerHTML = '&#x2715;';
     cross.id = 'cross';
-    
+
     popupImgDiv.append(popupImg);
     popupImgDiv.append(cross);
     popup.append(popupImgDiv);
@@ -122,18 +122,41 @@ function hideImage(imgId) {
     popup.classList.add('hide');
 }
 
+function checkboxesStatus(enable=true) {
+    let checkboxes = document.querySelectorAll('.cat-checkbox');
+
+    for (let checkbox of checkboxes) {
+        if (!checkbox.checked) {
+            checkbox.disabled = !enable;
+        }
+    }
+}
+
 function checkboxCounter() {
     let checkboxes = document.querySelectorAll('.cat-checkbox');
 
+    let selectedImgs = [];
     let n = 0;
     for (let checkbox of checkboxes) {
-        if (checkbox.checked) n += 1;
+        if (checkbox.checked) {
+            n += 1;
+            selectedImgs.push(checkbox.id);
+        }
     }
+
+    selectedImgIds = selectedImgs;
+
     return n;
 }
 
 function showNumSelectedImages() {
     let numSelected = checkboxCounter();
+    if (numSelected >= 50) {
+        checkboxesStatus(false);
+    } else {    
+        checkboxesStatus(true);
+    }
+
     let selectedDiv = document.querySelector('#img-count');
 
     selectedDiv.innerHTML = numSelected;
@@ -141,7 +164,39 @@ function showNumSelectedImages() {
 
 // varialbles
 
+let selectedImgIds = [];
+
 let diwaliImages = [
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
     'img/fakeImg.jpg',
     'img/fakeImg.jpg',
     'img/fakeImg.jpg',
@@ -183,13 +238,59 @@ let holiImages = [
     'img/fakeImg.jpg',
     'img/fakeImg.jpg',
     'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
+    'img/fakeImg.jpg',
     'img/fakeImg.jpg'
 ]
+
+const imgCatData = {
+    'diwali': {
+        'id': 'diwali',
+        'heading': 'Diwali',
+        'imgUrls': diwaliImages,
+        'numImgs': 10
+    },
+    'holi': {
+        'id': 'holi',
+        'heading': 'Holi',
+        'imgUrls': holiImages,
+        'numImgs': 10
+    }
+}
 
 let catIds = ['diwali', 'holi'];
 let catHeadings = ['Diwali', 'Holi'];
 let catImgUrls = [diwaliImages, holiImages];
-let catNumImgs = [20, 20];
+let catNumImgs = [diwaliImages.length, holiImages.length];
+const numImgToAdd = 10;
 
 let images = document.querySelectorAll('.cat-img');
 
@@ -200,14 +301,13 @@ addEventListener('click', (e) => {
     let imgClass = e.target.className;
     let imgId = e.target.id;
 
-    if (typeof(imgClass) !== 'string') return;
+    if (typeof (imgClass) !== 'string') return;
 
     if (imgClass.includes('cat-img')) {
-    showImage(imgId);
+        showImage(imgId);
     } else if (imgClass.includes('cross')) {
-    hideImage(imgId);
+        hideImage(imgId);
     }
 });
 
 setInterval(showNumSelectedImages, 500);
-
